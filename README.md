@@ -9,7 +9,7 @@ Send emails through [Mailgun](https://www.mailgun.com/). Cross domain is enabled
 
 #### Environment Variables
 
-    ALLOWED_DOMAINS
+    ALLOWED_DOMAINS * separated by commas
     MAILGUN_API_TOKEN
     MAINGUN_RECEIVER
     MAINGUN_DOMAIN

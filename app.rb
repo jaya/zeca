@@ -34,7 +34,7 @@ end
 
 post '/subscribe' do
   client = Mailgun::Client.new(ENV['MAILGUN_API_TOKEN'])
-  client.post("lists/#{ENV['MAILGUN_MAILING_LIST']}/members", { address: params[:address] })
+  client.post("lists/#{ENV['MAILGUN_MAILING_LIST']}/members", { address: params[:address], vars: '{}' })
 end
 
 options "*" do

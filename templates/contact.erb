@@ -11,5 +11,5 @@
   <br />
   <strong>Mensagem</strong>
   <br />
-  <%= params[:message] %>
+  <%= params[:message].to_s.gsub(/\n/, '<br/>') %>
 </p>

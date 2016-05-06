@@ -1,2 +1,2 @@
-# zeca
+# ZECA
 Send emails

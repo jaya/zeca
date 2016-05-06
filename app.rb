@@ -7,7 +7,7 @@ configure do
   set :server, :puma
 
   enable :cross_origin
-  set :allow_origin, ENV['ALLOWED_DOMAINS'].split(',')
+  set :allow_origin, ENV['ALLOWED_DOMAIN']
   set :allow_methods, [:post]
 end
 

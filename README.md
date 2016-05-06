@@ -4,8 +4,8 @@ Send emails through [Mailgun](https://www.mailgun.com/). Cross domain is enabled
 
 #### Routes
 
-    /contact - send emails, requires name, email, phone and message params
-    /subscribe - subscribe to mailing list, requires address param
+    POST /contact - send emails, requires name, email, phone and message params
+    POST /subscribe - subscribe to mailing list, requires address param
 
 #### Environment Variables
 

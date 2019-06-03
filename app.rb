@@ -1,16 +1,16 @@
 require 'sinatra'
-require 'sinatra/cross_origin'
 require 'mailgun'
 require 'erb'
 
 configure do
   set :server, :puma
-
-  enable :cross_origin
-  set :allow_origin, ENV['ALLOWED_DOMAIN']
-  set :allow_methods, [:post]
 end
 
+before do
+  headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
+  headers['Access-Control-Allow-Origin'] = ENV['ALLOWED_DOMAIN']
+  headers['Access-Control-Allow-Headers'] = 'accept, authorization, origin'
+end
 
 helpers do
   def template_file(template_name)
@@ -37,8 +37,8 @@ post '/subscribe' do
   client.post("lists/#{ENV['MAILGUN_MAILING_LIST']}/members", { address: params[:address], vars: '{}' })
 end
 
-options "*" do
-  response.headers['Allow'] = 'POST'
+options '*' do
+  response.headers['Allow'] = 'HEAD,GET,PUT,DELETE,OPTIONS,POST'
   response.headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept'
   200
 end
